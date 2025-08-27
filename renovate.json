@@ -1,0 +1,17 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "customManagers": [
+    {
+      "customType": "regex",
+      "fileMatch": ["^\\.github/workflows/.*\\.ya?ml$"],
+      "matchStrings": [
+        "VERSION: (?<currentValue>\\d+\\.\\d+\\.\\d+)"
+      ],
+      "depNameTemplate": "bitwarden/clients",
+      "datasourceTemplate": "github-releases",
+      "extractVersionTemplate": "^cli-v(?<version>.*)$"
+    }
+  ],
+
+  "extends": [":automergeMinor"]
+}
